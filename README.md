@@ -2,10 +2,14 @@
 横向滚动的菜单栏（ScrollView 和 UICollectionView）两种实现方式
 
 
+https://github.com/Meeca/SSMenuScrollView/blob/master/SSMenuScrollView/image/3.gif
+
+https://github.com/Meeca/SSMenuScrollView/blob/master/SSMenuScrollView/image/4.gif
 
 
-![Alt text](./4.gif)
-![Alt text](./3.gif)
+![enter image description here](https://github.com/Meeca/SSMenuScrollView/blob/master/SSMenuScrollView/image/3.gif)
+
+![enter image description here](https://github.com/Meeca/SSMenuScrollView/blob/master/SSMenuScrollView/image/4.gif)
 
 调用方法
 
