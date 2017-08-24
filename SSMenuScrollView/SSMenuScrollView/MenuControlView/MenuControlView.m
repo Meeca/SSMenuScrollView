@@ -62,7 +62,28 @@
     
     
     
+    
+    
+    
 }
+
+#pragma mark - 调整数据位置
+/*
+ *  感谢： https://github.com/cba023/CoolSlidingMenu
+ */
+- (NSInteger )convertDirectionCountWithNumber:(NSInteger )number colCount:(NSInteger )colCount rowCount:(NSInteger )rowCount {
+    // 十位
+    NSInteger tempH = number / (colCount * rowCount);
+    // 个位
+    NSInteger tempL = number % (colCount * rowCount);
+    NSInteger result = tempL - (tempL / rowCount) * (rowCount - 1) + tempL % rowCount * (colCount - 1) + tempH * (colCount * rowCount);
+    NSLog(@"排序前: %ld 行数：%ld tempL:%ld ----->result: %ld",number,rowCount,tempL,result);
+    return result;
+}
+
+
+
+
 
 - (void)reloadData{
     [self.collectionView reloadData];
@@ -82,10 +103,14 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    NSInteger row = [self convertDirectionCountWithNumber:indexPath.row colCount:_maxCol rowCount:_maxRow];
+    
+    
     MenuCollectionCell *cell =
     [MenuCollectionCell cellWithCollectionView:collectionView
                                     forIndexPath:indexPath];
-    CustomerScrollViewModel * model = _dataArray[indexPath.row];
+    CustomerScrollViewModel * model = _dataArray[row];
     cell.name  =model.name;
     cell.image  =model.icon;
     
